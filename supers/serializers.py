@@ -6,7 +6,9 @@ class SuperSerializer(serializers.ModelSerializer):
     class Meta:
         model= Super
         fields= ['id', 'name', 'alter_ego','primary_ability',
-                    'second_ability','catchphrase','super_type']
+                    'secondary_ability','catchphrase','super_type', 'super_type_id']
         depth=1
+
+    super_type_id= serializers.IntegerField(write_only=True)
 
  
