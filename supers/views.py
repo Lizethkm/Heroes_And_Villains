@@ -57,6 +57,10 @@ def retrieve_super(request, pk):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    elif request.method == 'DELETE':
+        super.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 
 
