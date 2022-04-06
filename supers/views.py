@@ -2,11 +2,8 @@ from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-
-from super_types.models import SuperType
 from .serializers import SuperSerializer
 from .models import Super
-from supers import serializers
 
 
 
@@ -24,7 +21,7 @@ def list_supers(request):
         if super_type_param:
             supers= supers.filter(super_type__type=super_type_param)
             serializer= SuperSerializer(supers, many=True)
-            return Response(serializer.data)
+            return Response(serializer.data,status=status.HTTP_200_OK)
 
         if sort_param:
             supers= supers.order_by(sort_param)
@@ -53,6 +50,13 @@ def retrieve_super(request, pk):
     if request.method == 'GET':
         serializer= SuperSerializer(super)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    elif request.method == 'PUT':
+        serializer= SuperSerializer(super, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 
