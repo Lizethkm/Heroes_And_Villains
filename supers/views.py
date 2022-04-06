@@ -6,6 +6,7 @@ from rest_framework import status
 from super_types.models import SuperType
 from .serializers import SuperSerializer
 from .models import Super
+from supers import serializers
 
 
 
@@ -15,29 +16,33 @@ from .models import Super
 
 def list_supers(request):
     
-    if request.method == 'GET':
-        super=Super.objects.all()
-        serializer= SuperSerializer(super, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-def list_heroes(request,fk):
-    
     super_type_param= request.query_params.get('type')
     sort_param= request.query_params.get('sort')
     supers= Super.objects.all()
 
     if super_type_param:
         supers= supers.filter(super_type__type=super_type_param)
-        
-        serializer= SuperSerializer(heroes, many=True)
+        serializer= SuperSerializer(supers, many=True)
+        return Response(serializer.data)
 
     if sort_param:
-        heroes= supers.order_by(sort_param)
-        heroes=supers.filter(type='Hero')
-        serializer= SuperSerializer(heroes, many=True)
+        supers= supers.order_by(sort_param)
+        serializer= SuperSerializer(supers, many=True)
+        return Response(serializer.data)
     
+    serializer= SuperSerializer(supers, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
+@api_view(['GET'])
+def retrieve_super(request, pk):
+    
+    super= get_object_or_404(Super, pk=pk)
+
+    if request.method == 'GET':
+        serializer= SuperSerializer(super)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     
 
