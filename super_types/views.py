@@ -24,4 +24,10 @@ def list_super_types(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+@api_view(['GET'])
 
+def super_type_details(request,pk):
+
+    super_type= get_object_or_404(SuperType, pk=pk)
+    serializer= SuperTypeSerializer(super_type)
+    return Response(serializer.data, status=status.HTTP_200_OK)
