@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "52d10827-df17-4cf8-b361-36c0de2b79fd",
+		"_postman_id": "4d6b9c7c-2094-476d-97b7-65a8b28cacbf",
 		"name": "Heroes_Villains_API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -163,31 +163,6 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/supers/17/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"supers",
-								"17",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete_Super",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
 							"raw": "http://127.0.0.1:8000/api/supers/5/",
 							"protocol": "http",
 							"host": [
@@ -206,6 +181,31 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete_Super",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/7/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"7",
+								""
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -218,7 +218,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://127.0.0.1:8000/api/super_types/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"super_types",
+								""
+							]
 						}
 					},
 					"response": []
@@ -229,7 +242,21 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "http://127.0.0.1:8000/api/super_types/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"super_types",
+								"4",
+								""
+							]
 						}
 					},
 					"response": []
@@ -241,12 +268,28 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n        \r\n        \"type\": \"Civilian\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/super_types/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"super_types",
+								""
+							]
 						}
 					},
 					"response": []
@@ -255,7 +298,33 @@
 					"name": "Update_Super_Type",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \r\n        \"type\": \"Henchmen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/super_types/4/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"super_types",
+								"4",
+								""
+							]
+						}
 					},
 					"response": []
 				},
@@ -263,7 +332,24 @@
 					"name": "Delete_Super_Type",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/super_types/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"super_types",
+								"3",
+								""
+							]
+						}
 					},
 					"response": []
 				}
